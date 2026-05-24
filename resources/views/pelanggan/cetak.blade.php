@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cetak Antrean</title>
     <style>
-        /* Styling khusus printer thermal (58mm width approx 200px) */
+       
         body {
-            font-family: 'Courier New', Courier, monospace; /* Font struk */
+            font-family: 'Courier New', Courier, monospace; 
             width: 250px; 
             margin: 0 auto;
             text-align: center;
@@ -18,13 +18,13 @@
         .qr-box { margin: 15px 0; }
         .garis { border-bottom: 2px dashed #000; margin: 10px 0; }
         
-        /* Hilangkan tombol saat dicetak ke kertas */
+       
         @media print {
             .btn-print { display: none; }
         }
     </style>
 </head>
-<!-- auto print saat halaman terbuka -->
+
 <body onload="window.print()"> 
 
     <h2>BARBERSHOP</h2>
@@ -41,7 +41,7 @@
     <p><strong>Layanan:</strong> {{ $antrean->layanan->nama_layanan }}</p>
     
     <div class="qr-box">
-        <!-- Render QR Code di sini -->
+      
         {!! QrCode::size(120)->generate($antrean->qr_code_string) !!}
     </div>
     

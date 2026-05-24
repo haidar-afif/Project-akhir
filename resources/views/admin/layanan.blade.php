@@ -13,7 +13,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container">
-        <a class="navbar-brand" href="#">Barbershop Admin</a>
+        <a class="navbar-brand" href="#">Admin Barbershop Apip</a>
         <div class="navbar-nav">
          
         <a class="nav-link" href="{{ route('admin.index') }}">Lihat Antrean & Scan</a>

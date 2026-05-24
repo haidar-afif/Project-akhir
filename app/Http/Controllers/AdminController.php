@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class AdminController extends Controller
 {
-    // Menampilkan halaman dashboard admin (Daftar antrean & form scan)
+    
     public function index()
     {
         $antreans = Antrean::with('layanan')
@@ -19,14 +19,13 @@ class AdminController extends Controller
         return view('admin.index', compact('antreans'));
     }
 
-    // Memproses hasil scan QR Code
     public function scan(Request $request)
     {
         $request->validate([
             'qr_code_string' => 'required|string'
         ]);
 
-        // Cari data antrean berdasarkan QR Code
+        
         $antrean = Antrean::where('qr_code_string', $request->qr_code_string)->first();
 
         if (!$antrean) {
