@@ -1,0 +1,31 @@
+:root {
+    --bg-color: #f8fafc;
+    --navy: #1e293b;
+    --accent: #f59e0b; /* Gold/Amber untuk aksen */
+    --light-gray: #e2e8f0;
+}
+
+body { background-color: var(--bg-color) !important; font-family: 'Segoe UI', sans-serif; }
+
+/* Navbar Elegan */
+.navbar { background-color: var(--navy) !important; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+
+/* Card Elegan */
+.card { border: none !important; border-radius: 12px !important; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1) !important; }
+
+/* Tombol */
+.btn-primary { background-color: var(--navy) !important; border: none !important; }
+.btn-primary:hover { background-color: #334155 !important; }
+
+/* Warna Status */
+.badge-menunggu { background-color: #94a3b8; color: white; }
+.badge-diproses { background-color: var(--accent); color: #000; }
+.badge-selesai { background-color: #10b981; color: white; }
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .5; }
+}

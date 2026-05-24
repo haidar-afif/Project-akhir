@@ -6,6 +6,7 @@
     <title>Lihat Antrean - Barbershop</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body class="bg-light">
 
@@ -34,28 +35,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($antreans as $antrean)
-                        <tr>
-                            <td>
-                                <span class="badge bg-secondary fs-6">A-{{ str_pad($antrean->nomer_antrean, 3, '0', STR_PAD_LEFT) }}</span>
-                            </td>
+                    @foreach($antreans as $antrean)
+                        <tr class="{{ $antrean->status == 'diproses' ? 'table-warning' : '' }}">
+                            <td class="fw-bold">A-{{ str_pad($antrean->nomer_antrean, 3, '0', STR_PAD_LEFT) }}</td>
                             <td>{{ $antrean->nama_pelanggan }}</td>
                             <td>{{ $antrean->layanan->nama_layanan }}</td>
                             <td>
                                 @if($antrean->status == 'menunggu')
-                                    <span class="badge bg-warning text-dark">Menunggu</span>
+                                    <span class="badge badge-menunggu">Menunggu</span>
                                 @elseif($antrean->status == 'diproses')
-                                    <span class="badge bg-primary">Diproses</span>
+                                    <span class="badge badge-diproses animate-pulse">Sedang Diproses</span>
                                 @else
-                                    <span class="badge bg-success">Selesai</span>
+                                    <span class="badge badge-selesai">Selesai</span>
                                 @endif
                             </td>
                         </tr>
-                    @empty
-                        <tr>
-                            <td colspan="4" class="text-center text-muted py-3">Belum ada antrean hari ini.</td>
-                        </tr>
-                    @endforelse
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -65,6 +60,6 @@
     setTimeout(function() {
         window.location.reload();
     }, 5000);
-</script>
+    </script>
 </body>
 </html>
